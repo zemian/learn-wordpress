@@ -4,4 +4,4 @@ mysqldump --single-transaction \
 --no-autocommit \
 --extended-insert=false \
 -u root \
-wordpressdb > db/wordpressdb.sql
+wordpresscleandb > db/wordpresscleandb.sql

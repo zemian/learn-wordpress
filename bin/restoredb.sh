@@ -1,2 +1,2 @@
 #!/bin/sh
-mysql -f -u root wordpressdb < db/wordpressdb.sql
+mysql -f -u root wordpresscleandb < db/wordpresscleandb.sql
