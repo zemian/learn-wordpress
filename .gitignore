@@ -5,3 +5,6 @@ temp/
 work/
 
 wordpress/wp-content/debug.log
+
+# This is a generated plugin that we can ignore
+wordpress/wp-content/plugins/wordpress-importer/
