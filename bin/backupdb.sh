@@ -4,4 +4,4 @@ mysqldump --single-transaction \
 --quick \
 --no-autocommit \
 --extended-insert=false \
--u root wordpressdb > $SCRIPT_DIR/../db/wordpressdb.sql
+-u root wptintdb > $SCRIPT_DIR/../db/wptintdb.sql
