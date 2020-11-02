@@ -48,18 +48,15 @@ Or to change it for existing user:
 The quickest way to start:
     
     php -S localhost:3000
-    open http://localhost:3000/wordpress/wp-admin/install.php
 
 To see more ways on how to setup PHP with different web servers, see [learn-php readme.md](https://github.com/zemian/learn-php).
 
 ## WP Installation 
 
-1. Select English Language
+1. open http://localhost:3000/wordpress/wp-admin/install.php
 
-2. Populate Site and Admin user form:
+2. Select English Language
 
-    * Default login: `admin/test123` (This is only my local test installation. Use your own setup)
+3. Populate DB information (it will auto create `wp-config.php` for you.)
 
-3. Finish install and visit admin site:
- 
-    * http://localhost:3000/wordpress/wp-admin
+4. Populate Site and Admin user info (example login: `admin/test123`)
