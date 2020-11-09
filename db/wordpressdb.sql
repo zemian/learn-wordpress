@@ -24,18 +24,18 @@ DROP TABLE IF EXISTS `wp_actionscheduler_actions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_actionscheduler_actions` (
   `action_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `hook` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `hook` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `scheduled_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `scheduled_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `args` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `schedule` longtext COLLATE utf8mb4_unicode_520_ci,
+  `args` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `schedule` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
   `group_id` bigint unsigned NOT NULL DEFAULT '0',
   `attempts` int NOT NULL DEFAULT '0',
   `last_attempt_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `last_attempt_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `claim_id` bigint unsigned NOT NULL DEFAULT '0',
-  `extended_args` varchar(8000) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `extended_args` varchar(8000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`action_id`),
   KEY `hook` (`hook`),
   KEY `status` (`status`),
@@ -100,7 +100,7 @@ DROP TABLE IF EXISTS `wp_actionscheduler_groups`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_actionscheduler_groups` (
   `group_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   PRIMARY KEY (`group_id`),
   KEY `slug` (`slug`(191))
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
@@ -129,7 +129,7 @@ DROP TABLE IF EXISTS `wp_actionscheduler_logs`;
 CREATE TABLE `wp_actionscheduler_logs` (
   `log_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `action_id` bigint unsigned NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `log_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `log_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`log_id`),
@@ -251,7 +251,7 @@ DROP TABLE IF EXISTS `wp_db7_forms`;
 CREATE TABLE `wp_db7_forms` (
   `form_id` bigint NOT NULL AUTO_INCREMENT,
   `form_post_id` bigint NOT NULL,
-  `form_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `form_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `form_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`form_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
@@ -331,8 +331,8 @@ CREATE TABLE `wp_options` (
 LOCK TABLES `wp_options` WRITE;
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost:3000/wordpress','yes');
-INSERT INTO `wp_options` VALUES (2,'home','http://localhost:3000/wordpress','yes');
+INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost/wordpress','yes');
+INSERT INTO `wp_options` VALUES (2,'home','http://localhost/wordpress','yes');
 INSERT INTO `wp_options` VALUES (3,'blogname','MyWP','yes');
 INSERT INTO `wp_options` VALUES (4,'blogdescription','Just another WordPress site','yes');
 INSERT INTO `wp_options` VALUES (5,'users_can_register','0','yes');
@@ -832,8 +832,8 @@ DROP TABLE IF EXISTS `wp_wpforms_tasks_meta`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_wpforms_tasks_meta` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `action` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `data` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
@@ -862,4 +862,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 10:34:18
+-- Dump completed on 2020-11-09 15:14:51
