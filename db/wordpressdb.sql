@@ -16,171 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `wp_actionscheduler_actions`
---
-
-DROP TABLE IF EXISTS `wp_actionscheduler_actions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_actionscheduler_actions` (
-  `action_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `hook` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `scheduled_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `scheduled_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `args` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `schedule` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
-  `group_id` bigint unsigned NOT NULL DEFAULT '0',
-  `attempts` int NOT NULL DEFAULT '0',
-  `last_attempt_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `last_attempt_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `claim_id` bigint unsigned NOT NULL DEFAULT '0',
-  `extended_args` varchar(8000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  PRIMARY KEY (`action_id`),
-  KEY `hook` (`hook`),
-  KEY `status` (`status`),
-  KEY `scheduled_date_gmt` (`scheduled_date_gmt`),
-  KEY `args` (`args`),
-  KEY `group_id` (`group_id`),
-  KEY `last_attempt_gmt` (`last_attempt_gmt`),
-  KEY `claim_id` (`claim_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_actionscheduler_actions`
---
-
-LOCK TABLES `wp_actionscheduler_actions` WRITE;
-/*!40000 ALTER TABLE `wp_actionscheduler_actions` DISABLE KEYS */;
-set autocommit=0;
-INSERT INTO `wp_actionscheduler_actions` VALUES (8,'action_scheduler/migration_hook','complete','2020-11-08 14:17:32','2020-11-08 14:17:32','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604845052;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604845052;}',1,1,'2020-11-08 14:17:36','2020-11-08 14:17:36',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (9,'action_scheduler/migration_hook','complete','2020-11-08 14:18:37','2020-11-08 14:18:37','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604845117;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604845117;}',1,1,'2020-11-08 14:19:00','2020-11-08 14:19:00',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (10,'wpforms_process_entry_emails_meta_cleanup','complete','2020-11-09 00:00:00','2020-11-09 00:00:00','{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1604880000;s:18:\"\0*\0first_timestamp\";i:1604880000;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1604880000;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,1,'2020-11-09 20:51:50','2020-11-09 20:51:50',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (11,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":2}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-08 14:27:53','2020-11-08 14:27:53',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (12,'action_scheduler/migration_hook','complete','2020-11-08 14:55:24','2020-11-08 14:55:24','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604847324;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604847324;}',1,1,'2020-11-08 14:55:25','2020-11-08 14:55:25',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (13,'action_scheduler/migration_hook','complete','2020-11-08 14:56:25','2020-11-08 14:56:25','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604847385;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604847385;}',1,1,'2020-11-08 14:56:53','2020-11-08 14:56:53',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (14,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":3}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-08 14:56:13','2020-11-08 14:56:13',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (15,'wpforms_process_entry_emails_meta_cleanup','canceled','2020-11-10 20:51:50','2020-11-10 20:51:50','{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1605041510;s:18:\"\0*\0first_timestamp\";i:1604880000;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1605041510;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (16,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":4}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-09 20:53:10','2020-11-09 20:53:10',0,NULL);
-INSERT INTO `wp_actionscheduler_actions` VALUES (17,'action_scheduler/migration_hook','pending','2020-11-09 20:55:56','2020-11-09 20:55:56','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604955356;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604955356;}',1,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
-/*!40000 ALTER TABLE `wp_actionscheduler_actions` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
-
---
--- Table structure for table `wp_actionscheduler_claims`
---
-
-DROP TABLE IF EXISTS `wp_actionscheduler_claims`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_actionscheduler_claims` (
-  `claim_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`claim_id`),
-  KEY `date_created_gmt` (`date_created_gmt`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_actionscheduler_claims`
---
-
-LOCK TABLES `wp_actionscheduler_claims` WRITE;
-/*!40000 ALTER TABLE `wp_actionscheduler_claims` DISABLE KEYS */;
-set autocommit=0;
-/*!40000 ALTER TABLE `wp_actionscheduler_claims` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
-
---
--- Table structure for table `wp_actionscheduler_groups`
---
-
-DROP TABLE IF EXISTS `wp_actionscheduler_groups`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_actionscheduler_groups` (
-  `group_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  PRIMARY KEY (`group_id`),
-  KEY `slug` (`slug`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_actionscheduler_groups`
---
-
-LOCK TABLES `wp_actionscheduler_groups` WRITE;
-/*!40000 ALTER TABLE `wp_actionscheduler_groups` DISABLE KEYS */;
-set autocommit=0;
-INSERT INTO `wp_actionscheduler_groups` VALUES (1,'action-scheduler-migration');
-INSERT INTO `wp_actionscheduler_groups` VALUES (2,'wpforms');
-/*!40000 ALTER TABLE `wp_actionscheduler_groups` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
-
---
--- Table structure for table `wp_actionscheduler_logs`
---
-
-DROP TABLE IF EXISTS `wp_actionscheduler_logs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_actionscheduler_logs` (
-  `log_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `action_id` bigint unsigned NOT NULL,
-  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `log_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `log_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`log_id`),
-  KEY `action_id` (`action_id`),
-  KEY `log_date_gmt` (`log_date_gmt`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_actionscheduler_logs`
---
-
-LOCK TABLES `wp_actionscheduler_logs` WRITE;
-/*!40000 ALTER TABLE `wp_actionscheduler_logs` DISABLE KEYS */;
-set autocommit=0;
-INSERT INTO `wp_actionscheduler_logs` VALUES (1,8,'action created','2020-11-08 14:16:32','2020-11-08 14:16:32');
-INSERT INTO `wp_actionscheduler_logs` VALUES (2,8,'action started via WP Cron','2020-11-08 14:17:36','2020-11-08 14:17:36');
-INSERT INTO `wp_actionscheduler_logs` VALUES (3,8,'action complete via WP Cron','2020-11-08 14:17:36','2020-11-08 14:17:36');
-INSERT INTO `wp_actionscheduler_logs` VALUES (4,9,'action created','2020-11-08 14:17:37','2020-11-08 14:17:37');
-INSERT INTO `wp_actionscheduler_logs` VALUES (5,10,'action created','2020-11-08 14:17:37','2020-11-08 14:17:37');
-INSERT INTO `wp_actionscheduler_logs` VALUES (6,9,'action started via WP Cron','2020-11-08 14:19:00','2020-11-08 14:19:00');
-INSERT INTO `wp_actionscheduler_logs` VALUES (7,9,'action complete via WP Cron','2020-11-08 14:19:00','2020-11-08 14:19:00');
-INSERT INTO `wp_actionscheduler_logs` VALUES (8,11,'action created','2020-11-08 14:27:28','2020-11-08 14:27:28');
-INSERT INTO `wp_actionscheduler_logs` VALUES (9,11,'action started via WP Cron','2020-11-08 14:27:52','2020-11-08 14:27:52');
-INSERT INTO `wp_actionscheduler_logs` VALUES (10,11,'action complete via WP Cron','2020-11-08 14:27:53','2020-11-08 14:27:53');
-INSERT INTO `wp_actionscheduler_logs` VALUES (11,12,'action created','2020-11-08 14:54:24','2020-11-08 14:54:24');
-INSERT INTO `wp_actionscheduler_logs` VALUES (12,12,'action started via WP Cron','2020-11-08 14:55:25','2020-11-08 14:55:25');
-INSERT INTO `wp_actionscheduler_logs` VALUES (13,12,'action complete via WP Cron','2020-11-08 14:55:25','2020-11-08 14:55:25');
-INSERT INTO `wp_actionscheduler_logs` VALUES (14,13,'action created','2020-11-08 14:55:25','2020-11-08 14:55:25');
-INSERT INTO `wp_actionscheduler_logs` VALUES (15,14,'action created','2020-11-08 14:55:39','2020-11-08 14:55:39');
-INSERT INTO `wp_actionscheduler_logs` VALUES (16,14,'action started via Async Request','2020-11-08 14:56:13','2020-11-08 14:56:13');
-INSERT INTO `wp_actionscheduler_logs` VALUES (17,14,'action complete via Async Request','2020-11-08 14:56:13','2020-11-08 14:56:13');
-INSERT INTO `wp_actionscheduler_logs` VALUES (18,13,'action started via WP Cron','2020-11-08 14:56:53','2020-11-08 14:56:53');
-INSERT INTO `wp_actionscheduler_logs` VALUES (19,13,'action complete via WP Cron','2020-11-08 14:56:53','2020-11-08 14:56:53');
-INSERT INTO `wp_actionscheduler_logs` VALUES (20,10,'action started via WP Cron','2020-11-09 20:51:50','2020-11-09 20:51:50');
-INSERT INTO `wp_actionscheduler_logs` VALUES (21,10,'action complete via WP Cron','2020-11-09 20:51:50','2020-11-09 20:51:50');
-INSERT INTO `wp_actionscheduler_logs` VALUES (22,15,'action created','2020-11-09 20:51:50','2020-11-09 20:51:50');
-INSERT INTO `wp_actionscheduler_logs` VALUES (23,16,'action created','2020-11-09 20:52:09','2020-11-09 20:52:09');
-INSERT INTO `wp_actionscheduler_logs` VALUES (24,16,'action started via WP Cron','2020-11-09 20:53:10','2020-11-09 20:53:10');
-INSERT INTO `wp_actionscheduler_logs` VALUES (25,16,'action complete via WP Cron','2020-11-09 20:53:10','2020-11-09 20:53:10');
-INSERT INTO `wp_actionscheduler_logs` VALUES (26,17,'action created','2020-11-09 20:54:56','2020-11-09 20:54:56');
-INSERT INTO `wp_actionscheduler_logs` VALUES (27,15,'action canceled','2020-11-09 20:55:04','2020-11-09 20:55:04');
-INSERT INTO `wp_actionscheduler_logs` VALUES (28,15,'action canceled','2020-11-09 20:55:04','2020-11-09 20:55:04');
-/*!40000 ALTER TABLE `wp_actionscheduler_logs` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
-
---
 -- Table structure for table `wp_commentmeta`
 --
 
@@ -254,34 +89,6 @@ UNLOCK TABLES;
 commit;
 
 --
--- Table structure for table `wp_db7_forms`
---
-
-DROP TABLE IF EXISTS `wp_db7_forms`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_db7_forms` (
-  `form_id` bigint NOT NULL AUTO_INCREMENT,
-  `form_post_id` bigint NOT NULL,
-  `form_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `form_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`form_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_db7_forms`
---
-
-LOCK TABLES `wp_db7_forms` WRITE;
-/*!40000 ALTER TABLE `wp_db7_forms` DISABLE KEYS */;
-set autocommit=0;
-INSERT INTO `wp_db7_forms` VALUES (1,10,'a:5:{s:12:\"cfdb7_status\";s:4:\"read\";s:9:\"your-name\";s:5:\"Test2\";s:10:\"your-email\";s:18:\"test@localhost.com\";s:12:\"your-subject\";s:10:\"Save to DB\";s:12:\"your-message\";s:15:\"Save to DB Test\";}','2020-11-08 15:31:32');
-/*!40000 ALTER TABLE `wp_db7_forms` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
-
---
 -- Table structure for table `wp_links`
 --
 
@@ -333,7 +140,7 @@ CREATE TABLE `wp_options` (
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
-) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=270 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -446,7 +253,7 @@ INSERT INTO `wp_options` VALUES (100,'widget_recent-comments','a:2:{i:2;a:2:{s:5
 INSERT INTO `wp_options` VALUES (101,'widget_archives','a:2:{i:2;a:3:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}','yes');
 INSERT INTO `wp_options` VALUES (102,'widget_meta','a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}','yes');
 INSERT INTO `wp_options` VALUES (103,'sidebars_widgets','a:4:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:3:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";}s:9:\"sidebar-2\";a:3:{i:0;s:10:\"archives-2\";i:1;s:12:\"categories-2\";i:2;s:6:\"meta-2\";}s:13:\"array_version\";i:3;}','yes');
-INSERT INTO `wp_options` VALUES (104,'cron','a:8:{i:1604956372;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1604992372;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1605020031;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605020032;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605035571;a:2:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605041749;a:1:{s:23:\"flamingo_daily_cron_job\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605535200;a:1:{s:28:\"wpforms_email_summaries_cron\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:30:\"wpforms_email_summaries_weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}s:7:\"version\";i:2;}','yes');
+INSERT INTO `wp_options` VALUES (104,'cron','a:8:{i:1604963572;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1604992372;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1605020031;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605020032;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605035571;a:2:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605041749;a:1:{s:23:\"flamingo_daily_cron_job\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1605535200;a:1:{s:28:\"wpforms_email_summaries_cron\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:30:\"wpforms_email_summaries_weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}s:7:\"version\";i:2;}','yes');
 INSERT INTO `wp_options` VALUES (105,'widget_pages','a:1:{s:12:\"_multiwidget\";i:1;}','yes');
 INSERT INTO `wp_options` VALUES (106,'widget_calendar','a:1:{s:12:\"_multiwidget\";i:1;}','yes');
 INSERT INTO `wp_options` VALUES (107,'widget_media_audio','a:1:{s:12:\"_multiwidget\";i:1;}','yes');
@@ -527,7 +334,7 @@ CREATE TABLE `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -541,7 +348,7 @@ INSERT INTO `wp_postmeta` VALUES (1,2,'_wp_page_template','default');
 INSERT INTO `wp_postmeta` VALUES (2,3,'_wp_page_template','default');
 INSERT INTO `wp_postmeta` VALUES (3,6,'_edit_lock','1604847551:1');
 INSERT INTO `wp_postmeta` VALUES (4,5,'wpforms_entries_count','1');
-INSERT INTO `wp_postmeta` VALUES (5,8,'_edit_lock','1604849500:1');
+INSERT INTO `wp_postmeta` VALUES (5,8,'_edit_lock','1604962705:1');
 INSERT INTO `wp_postmeta` VALUES (7,10,'_form','<label> Your name\n    [text* your-name] </label>\n\n<label> Your email\n    [email* your-email] </label>\n\n<label> Subject\n    [text* your-subject] </label>\n\n<label> Your message (optional)\n    [textarea your-message] </label>\n\n[submit \"Submit\"]');
 INSERT INTO `wp_postmeta` VALUES (8,10,'_mail','a:8:{s:7:\"subject\";s:30:\"[_site_title] \"[your-subject]\"\";s:6:\"sender\";s:35:\"[_site_title] <admin@localhost.com>\";s:4:\"body\";s:163:\"From: [your-name] <[your-email]>\nSubject: [your-subject]\n\nMessage Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on [_site_title] ([_site_url])\";s:9:\"recipient\";s:19:\"[_site_admin_email]\";s:18:\"additional_headers\";s:22:\"Reply-To: [your-email]\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";i:0;s:13:\"exclude_blank\";i:0;}');
 INSERT INTO `wp_postmeta` VALUES (9,10,'_mail_2','a:9:{s:6:\"active\";b:0;s:7:\"subject\";s:30:\"[_site_title] \"[your-subject]\"\";s:6:\"sender\";s:35:\"[_site_title] <admin@localhost.com>\";s:4:\"body\";s:105:\"Message Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on [_site_title] ([_site_url])\";s:9:\"recipient\";s:12:\"[your-email]\";s:18:\"additional_headers\";s:29:\"Reply-To: [_site_admin_email]\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";i:0;s:13:\"exclude_blank\";i:0;}');
@@ -627,7 +434,7 @@ CREATE TABLE `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -644,7 +451,7 @@ INSERT INTO `wp_posts` VALUES (4,1,'2020-11-08 14:53:52','0000-00-00 00:00:00','
 INSERT INTO `wp_posts` VALUES (5,1,'2020-11-08 14:54:47','2020-11-08 14:54:47','{\"id\":\"5\",\"field_id\":3,\"fields\":[{\"id\":\"0\",\"type\":\"name\",\"label\":\"Name\",\"format\":\"first-last\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"simple_placeholder\":\"\",\"simple_default\":\"\",\"first_placeholder\":\"\",\"first_default\":\"\",\"middle_placeholder\":\"\",\"middle_default\":\"\",\"last_placeholder\":\"\",\"last_default\":\"\",\"css\":\"\"},{\"id\":\"1\",\"type\":\"email\",\"label\":\"Email\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"confirmation_placeholder\":\"\",\"default_value\":\"\",\"css\":\"\",\"filter_type\":\"\",\"allowlist\":\"\",\"denylist\":\"\"},{\"id\":\"2\",\"type\":\"textarea\",\"label\":\"Comment or Message\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"limit_count\":\"1\",\"limit_mode\":\"characters\",\"default_value\":\"\",\"css\":\"\"}],\"settings\":{\"form_title\":\"Simple Contact Form\",\"form_desc\":\"\",\"form_class\":\"\",\"submit_text\":\"Submit\",\"submit_text_processing\":\"Sending...\",\"submit_class\":\"\",\"antispam\":\"1\",\"notification_enable\":\"1\",\"notifications\":{\"1\":{\"email\":\"{admin_email}\",\"subject\":\"New Entry: Simple Contact Form\",\"sender_name\":\"MyWP\",\"sender_address\":\"{admin_email}\",\"replyto\":\"{field_id=\\\"1\\\"}\",\"message\":\"{all_fields}\"}},\"confirmations\":{\"1\":{\"type\":\"message\",\"message\":\"<p>Thanks for contacting us! We will be in touch with you shortly.<\\/p>\",\"message_scroll\":\"1\",\"page\":\"2\",\"redirect\":\"\"}}},\"meta\":{\"template\":\"contact\"}}','Simple Contact Form','','publish','closed','closed','','simple-contact-form','','','2020-11-08 14:54:52','2020-11-08 14:54:52','',0,'http://localhost:3000/wordpress/?post_type=wpforms&#038;p=5',0,'wpforms','',0);
 INSERT INTO `wp_posts` VALUES (6,1,'2020-11-08 14:55:36','2020-11-08 14:55:36','<!-- wp:shortcode -->\n[wpforms id=\"5\"]\n<!-- /wp:shortcode -->','Contact - WPForms','','publish','closed','closed','','contact','','','2020-11-09 20:58:54','2020-11-09 20:58:54','',27,'http://localhost:3000/wordpress/?page_id=6',0,'page','',0);
 INSERT INTO `wp_posts` VALUES (7,1,'2020-11-08 14:55:36','2020-11-08 14:55:36','<!-- wp:shortcode -->\n[wpforms id=\"5\"]\n<!-- /wp:shortcode -->','Contact','','inherit','closed','closed','','6-revision-v1','','','2020-11-08 14:55:36','2020-11-08 14:55:36','',6,'http://localhost:3000/wordpress/index.php/2020/11/08/6-revision-v1/',0,'revision','',0);
-INSERT INTO `wp_posts` VALUES (8,1,'2020-11-08 14:58:42','2020-11-08 14:58:42','<!-- wp:heading -->\n<h2>WPForms (Lite)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The WPForms is very easy to use, but the lite version will not save entries for you. Only when you upgrade it does! So it only sends emails. This plugin let you create any form, not just contact form!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"WPForm\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The code base for this is very large (it uses Symfony Framework).</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                            433          12410          30542          82278\nCSS                             52           3875            894          20735\nJavaScript                      75           3273           4926          11391\nSVG                             32              0              0           2712\nJSON                             1              0              0             63\nMarkdown                         2              3              0             23\n-------------------------------------------------------------------------------\nSUM:                           595          19561          36362         117202\n-------------------------------------------------------------------------------\n</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:heading -->\n<h2>Contact Form 7</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Much form simpler, but the configurations is not UI pretty. It only sends email, no entries storage either.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"Contact\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This plugin is small:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                             53           3041            264          10835\nCSS                              8            161            118           2055\nJavaScript                       5            225             14            888\nSVG                              1              0              0              1\n-------------------------------------------------------------------------------\nSUM:                            67           3427            396          13779\n-------------------------------------------------------------------------------</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:paragraph -->\n<p>Wait, there are other plugins that add more feature to CF7! For example get the \"<strong>Contact Form CFDB7</strong>\", and it will save form submit entries into database! After install, it gives yet another Admin Menu item \"Contact Forms\". Here you may browse each form instance and their entries!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2>Very Simple Contact Form</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>(VSCF) is a simple plugin indeed (it only has 9 PHP files!). No separate Admin menu entry. The settings is a single page added under general WP \"Setting\" menu.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It can send emails and customize the form label. No DB entries saves. You only have one single form instance! Add <code>[contact]</code> shortcode to use it.</p>\n<!-- /wp:paragraph -->','Forms Plugin Reviews','','publish','open','open','','forms-plugin-reviews','','','2020-11-08 15:33:24','2020-11-08 15:33:24','',0,'http://localhost:3000/wordpress/?p=8',0,'post','',0);
+INSERT INTO `wp_posts` VALUES (8,1,'2020-11-08 14:58:42','2020-11-08 14:58:42','<!-- wp:heading -->\n<h2>WPForms (Lite)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The WPForms is very easy to use, but the lite version will not save entries for you. Only when you upgrade it does! So it only sends emails. This plugin let you create any form, not just contact form!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"WPForm\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The code base for this is very large (it uses Symfony Framework).</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                            433          12410          30542          82278\nCSS                             52           3875            894          20735\nJavaScript                      75           3273           4926          11391\nSVG                             32              0              0           2712\nJSON                             1              0              0             63\nMarkdown                         2              3              0             23\n-------------------------------------------------------------------------------\nSUM:                           595          19561          36362         117202\n-------------------------------------------------------------------------------\n</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:heading -->\n<h2>Very Simple Contact Form</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>(VSCF) is a simple plugin indeed (it only has 9 PHP files!). No separate Admin menu entry. The settings is a single page added under general WP \"Setting\" menu.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It can send emails and customize the form label. No DB entries saves. You only have one single form instance! Add <code>[contact]</code> shortcode to use it.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2>Contact Form 7</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Much form simpler, but the configurations is not UI pretty. It only sends email, no entries storage either.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"Contact\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This plugin is small:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                             53           3041            264          10835\nCSS                              8            161            118           2055\nJavaScript                       5            225             14            888\nSVG                              1              0              0              1\n-------------------------------------------------------------------------------\nSUM:                            67           3427            396          13779\n-------------------------------------------------------------------------------</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:paragraph -->\n<p>Wait, there are other plugins that add more feature to CF7! For example get the <strong>Contact Form CFDB7</strong>, and it will save form submit entries into database! After install, it gives yet another Admin Menu item \"Contact Forms\". Here you may browse each form instance and their entries! This plugin actually creates a separate DB table to store the entries! The UI is little bare.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>Flamingo</strong> is another plugin that extends CF7. This plugin actually store entries as part of the DB <code>wp_posts</code> table. The UI is actually decent and fit into WP admin really well.</p>\n<!-- /wp:paragraph -->','Forms Plugin Reviews','','publish','open','open','','forms-plugin-reviews','','','2020-11-09 22:58:27','2020-11-09 22:58:27','',0,'http://localhost:3000/wordpress/?p=8',0,'post','',0);
 INSERT INTO `wp_posts` VALUES (9,1,'2020-11-08 14:58:42','2020-11-08 14:58:42','<!-- wp:heading -->\n<h2>WPForms (Lite)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The WPForms is very easy to use, but the lite version will not save entries for you. Only when you upgrade it does! So it only sends emails.</p>\n<!-- /wp:paragraph -->','Forms Plugin Reviews','','inherit','closed','closed','','8-revision-v1','','','2020-11-08 14:58:42','2020-11-08 14:58:42','',8,'http://localhost:3000/wordpress/index.php/2020/11/08/8-revision-v1/',0,'revision','',0);
 INSERT INTO `wp_posts` VALUES (10,1,'2020-11-08 14:59:35','2020-11-08 14:59:35','<label> Your name\n    [text* your-name] </label>\n\n<label> Your email\n    [email* your-email] </label>\n\n<label> Subject\n    [text* your-subject] </label>\n\n<label> Your message (optional)\n    [textarea your-message] </label>\n\n[submit \"Submit\"]\n[_site_title] \"[your-subject]\"\n[_site_title] <admin@localhost.com>\nFrom: [your-name] <[your-email]>\nSubject: [your-subject]\n\nMessage Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on [_site_title] ([_site_url])\n[_site_admin_email]\nReply-To: [your-email]\n\n0\n0\n\n[_site_title] \"[your-subject]\"\n[_site_title] <admin@localhost.com>\nMessage Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on [_site_title] ([_site_url])\n[your-email]\nReply-To: [_site_admin_email]\n\n0\n0\nThank you for your message. It has been sent.\nThere was an error trying to send your message. Please try again later.\nOne or more fields have an error. Please check and try again.\nThere was an error trying to send your message. Please try again later.\nYou must accept the terms and conditions before sending your message.\nThe field is required.\nThe field is too long.\nThe field is too short.','Contact form 1','','publish','closed','closed','','contact-form-1','','','2020-11-08 14:59:35','2020-11-08 14:59:35','',0,'http://localhost:3000/wordpress/?post_type=wpcf7_contact_form&p=10',0,'wpcf7_contact_form','',0);
 INSERT INTO `wp_posts` VALUES (11,1,'2020-11-08 15:01:33','2020-11-08 15:01:33','<!-- wp:shortcode -->\n[wpforms id=\"5\"]\n<!-- /wp:shortcode -->','Contact - WPForms','','inherit','closed','closed','','6-revision-v1','','','2020-11-08 15:01:33','2020-11-08 15:01:33','',6,'http://localhost:3000/wordpress/index.php/2020/11/08/6-revision-v1/',0,'revision','',0);
@@ -668,6 +475,7 @@ INSERT INTO `wp_posts` VALUES (28,1,'2020-11-09 20:57:47','2020-11-09 20:57:47',
 INSERT INTO `wp_posts` VALUES (29,1,'2020-11-09 20:58:11','0000-00-00 00:00:00','','Auto Draft','','auto-draft','closed','closed','','','','','2020-11-09 20:58:11','0000-00-00 00:00:00','',0,'http://localhost/wordpress/?page_id=29',0,'page','',0);
 INSERT INTO `wp_posts` VALUES (30,0,'2020-11-09 20:59:22','2020-11-09 20:59:22','test@localhost.com\ntest','test@localhost.com','','publish','closed','closed','','test-localhost-com','','','2020-11-09 20:59:22','2020-11-09 20:59:22','',0,'http://localhost/wordpress/?post_type=flamingo_contact&p=30',0,'flamingo_contact','',0);
 INSERT INTO `wp_posts` VALUES (31,0,'2020-11-09 20:59:22','2020-11-09 20:59:22','test\ntest@localhost.com\nFlamingo Test\nFlamingo Test\n1\n127.0.0.1\nMozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0\nhttp://localhost/wordpress/index.php/contact-cf7/\nNovember 9, 2020\n8:59 pm\n12\ncontact-cf7\nContact - CF7\nhttp://localhost/wordpress/index.php/contact-cf7/\nadmin\nadmin@localhost.com\nMyWP\nJust another WordPress site\nhttp://localhost/wordpress\nadmin@localhost.com','Flamingo Test','','publish','closed','closed','','flamingo-test','','','2020-11-09 20:59:22','2020-11-09 20:59:22','',0,'http://localhost/wordpress/?post_type=flamingo_inbound&p=31',0,'flamingo_inbound','',0);
+INSERT INTO `wp_posts` VALUES (32,1,'2020-11-09 22:58:27','2020-11-09 22:58:27','<!-- wp:heading -->\n<h2>WPForms (Lite)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The WPForms is very easy to use, but the lite version will not save entries for you. Only when you upgrade it does! So it only sends emails. This plugin let you create any form, not just contact form!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"WPForm\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The code base for this is very large (it uses Symfony Framework).</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                            433          12410          30542          82278\nCSS                             52           3875            894          20735\nJavaScript                      75           3273           4926          11391\nSVG                             32              0              0           2712\nJSON                             1              0              0             63\nMarkdown                         2              3              0             23\n-------------------------------------------------------------------------------\nSUM:                           595          19561          36362         117202\n-------------------------------------------------------------------------------\n</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:heading -->\n<h2>Very Simple Contact Form</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>(VSCF) is a simple plugin indeed (it only has 9 PHP files!). No separate Admin menu entry. The settings is a single page added under general WP \"Setting\" menu.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It can send emails and customize the form label. No DB entries saves. You only have one single form instance! Add <code>[contact]</code> shortcode to use it.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2>Contact Form 7</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Much form simpler, but the configurations is not UI pretty. It only sends email, no entries storage either.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The plugin comes with its own Admin Menu \"Contact\" for Settings and managing forms.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This plugin is small:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:code -->\n<pre class=\"wp-block-code\"><code>-------------------------------------------------------------------------------\nLanguage                     files          blank        comment           code\n-------------------------------------------------------------------------------\nPHP                             53           3041            264          10835\nCSS                              8            161            118           2055\nJavaScript                       5            225             14            888\nSVG                              1              0              0              1\n-------------------------------------------------------------------------------\nSUM:                            67           3427            396          13779\n-------------------------------------------------------------------------------</code></pre>\n<!-- /wp:code -->\n\n<!-- wp:paragraph -->\n<p>Wait, there are other plugins that add more feature to CF7! For example get the <strong>Contact Form CFDB7</strong>, and it will save form submit entries into database! After install, it gives yet another Admin Menu item \"Contact Forms\". Here you may browse each form instance and their entries! This plugin actually creates a separate DB table to store the entries! The UI is little bare.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>Flamingo</strong> is another plugin that extends CF7. This plugin actually store entries as part of the DB <code>wp_posts</code> table. The UI is actually decent and fit into WP admin really well.</p>\n<!-- /wp:paragraph -->','Forms Plugin Reviews','','inherit','closed','closed','','8-revision-v1','','','2020-11-09 22:58:27','2020-11-09 22:58:27','',8,'http://localhost/wordpress/index.php/2020/11/09/8-revision-v1/',0,'revision','',0);
 /*!40000 ALTER TABLE `wp_posts` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -837,7 +645,7 @@ INSERT INTO `wp_usermeta` VALUES (12,1,'wp_capabilities','a:1:{s:13:\"administra
 INSERT INTO `wp_usermeta` VALUES (13,1,'wp_user_level','10');
 INSERT INTO `wp_usermeta` VALUES (14,1,'dismissed_wp_pointers','');
 INSERT INTO `wp_usermeta` VALUES (15,1,'show_welcome_panel','0');
-INSERT INTO `wp_usermeta` VALUES (16,1,'session_tokens','a:2:{s:64:\"bf45fd76058034a77194d3348baac07594658ffadf3be4d422cafb4343053ee6\";a:4:{s:10:\"expiration\";i:1605020031;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36\";s:5:\"login\";i:1604847231;}s:64:\"03fa371983b5dd74a278a6bd52efdc75ae3c22f4e11ffbfb89bec5c52db48620\";a:4:{s:10:\"expiration\";i:1605127928;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:82:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0\";s:5:\"login\";i:1604955128;}}');
+INSERT INTO `wp_usermeta` VALUES (16,1,'session_tokens','a:3:{s:64:\"bf45fd76058034a77194d3348baac07594658ffadf3be4d422cafb4343053ee6\";a:4:{s:10:\"expiration\";i:1605020031;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36\";s:5:\"login\";i:1604847231;}s:64:\"03fa371983b5dd74a278a6bd52efdc75ae3c22f4e11ffbfb89bec5c52db48620\";a:4:{s:10:\"expiration\";i:1605127928;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:82:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0\";s:5:\"login\";i:1604955128;}s:64:\"10d7a6104f542f825f6896f8235a6b6d2e98f32df709cdf37ec82ab23268f809\";a:4:{s:10:\"expiration\";i:1605135315;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:82:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0\";s:5:\"login\";i:1604962515;}}');
 INSERT INTO `wp_usermeta` VALUES (17,1,'wp_user-settings','libraryContent=browse&editor=tinymce&mfold=o&post_dfw=off&posts_list_mode=list');
 INSERT INTO `wp_usermeta` VALUES (18,1,'wp_user-settings-time','1604847227');
 INSERT INTO `wp_usermeta` VALUES (19,1,'wp_dashboard_quick_press_last_post_id','4');
@@ -885,37 +693,6 @@ INSERT INTO `wp_users` VALUES (1,'admin','$P$BQhhCZel6SN.JCDhmv3dbbKO5.Gtl20','a
 /*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
-
---
--- Table structure for table `wp_wpforms_tasks_meta`
---
-
-DROP TABLE IF EXISTS `wp_wpforms_tasks_meta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wp_wpforms_tasks_meta` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wp_wpforms_tasks_meta`
---
-
-LOCK TABLES `wp_wpforms_tasks_meta` WRITE;
-/*!40000 ALTER TABLE `wp_wpforms_tasks_meta` DISABLE KEYS */;
-set autocommit=0;
-INSERT INTO `wp_wpforms_tasks_meta` VALUES (1,'wpforms_process_entry_emails_meta_cleanup','Wzg2NDAwXQ==','2020-11-08 14:17:37');
-INSERT INTO `wp_wpforms_tasks_meta` VALUES (2,'wpforms_admin_notifications_update','W10=','2020-11-08 14:27:28');
-INSERT INTO `wp_wpforms_tasks_meta` VALUES (3,'wpforms_admin_notifications_update','W10=','2020-11-08 14:55:39');
-INSERT INTO `wp_wpforms_tasks_meta` VALUES (4,'wpforms_admin_notifications_update','W10=','2020-11-09 20:52:09');
-/*!40000 ALTER TABLE `wp_wpforms_tasks_meta` ENABLE KEYS */;
-UNLOCK TABLES;
-commit;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -926,4 +703,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-09 16:02:31
+-- Dump completed on 2020-11-09 17:59:16
