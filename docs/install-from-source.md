@@ -13,3 +13,9 @@ php -S localhost:3000
 # Copy wp-config-sample.php wp-config.php and enter DB user/password 
 http://localhost:3000/wp-admin/install.php
 ```
+
+## Reinstall an existing site
+
+1. Drop the database
+2. Remove wp-config.php file
+3. Open http://localhost:3000/wp-admin/install.php
