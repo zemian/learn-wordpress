@@ -17,7 +17,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Bring in different test files
 require_once( dirname( __FILE__ ) . '/includes/admin-config.php' );
-require_once( dirname( __FILE__ ) . '/includes/shortcode-demo.php' );
-require_once( dirname( __FILE__ ) . '/includes/db-wpdb-demo.php' );
-require_once( dirname( __FILE__ ) . '/includes/admin-menu-demo.php' );
+require_once( dirname( __FILE__ ) . '/includes/admin-menu.php' );
 require_once( dirname( __FILE__ ) . '/book-type/init.php' );

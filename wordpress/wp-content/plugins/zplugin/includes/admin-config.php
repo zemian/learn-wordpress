@@ -10,6 +10,5 @@ function disable_autosave() {
 	wp_deregister_script( 'autosave' );
 }
 
-// We can also disable Revision save with this constant, but the WP Githuber MD has a Setting for this 
-// Already.
+// We can also disable Revision save with this constant
 // define('WP_POST_REVISIONS', false );
