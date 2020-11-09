@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="wp_admin_style">
+ <description>Rules for WordPress Admin Style PHP projects</description>
+
+ <file>./inc</file>
+ <file>./WpAdminStyle.php</file>
+
+ <!-- Code Reviews Rules -->
+ <rule ref="WordPress"/>
+
+</ruleset>
+
