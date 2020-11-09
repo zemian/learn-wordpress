@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Shortcode to access the DB directly usign $wpdb global var.
-function zplugin_shortcode_zpluginwpdb() {
+function zplugin_shortcode_wpdb() {
 	// 1st Method - Declaring $wpdb as global and using it to execute an SQL query statement that returns a PHP object
 	global $wpdb;
 	$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}options WHERE option_id = 1", OBJECT );
@@ -13,4 +13,4 @@ function zplugin_shortcode_zpluginwpdb() {
 	return "<pre>$ret</pre>";
 }
 
-add_shortcode( 'zpluginwpdb', 'zplugin_shortcode_zpluginwpdb' );
+add_shortcode( 'zpluginwpdb', 'zplugin_shortcode_wpdb' );

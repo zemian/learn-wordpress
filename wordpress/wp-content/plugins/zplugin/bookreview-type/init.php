@@ -11,8 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 // the DB before you may view any of these newly created custom posts!
 //
 // Example on how to access these posts without customizing template:
-// List of posts: http://localhost:3000/wordpress/index.php?post_type=BookReview
-// Single post: http://localhost:3000/wordpress/index.php/BookReview/BookReview1/
+// List of posts: http://localhost/wordpress/?post_type=bookreview
+// List of posts (alternative): http://localhost/wordpress/index.php/bookreview/
+// Single post: http://localhost/wordpress/index.php/bookreview/book-3/
 
 
 // Custom BookReview Type
