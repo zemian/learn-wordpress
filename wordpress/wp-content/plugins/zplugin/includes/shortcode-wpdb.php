@@ -4,11 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( "We're sorry, but you can not directly access this file." );
 }
 
-// https://developer.wordpress.org/reference/classes/wpdb/
-// WordPress provides a global object, $wpdb, which is an instantiation of the wpdb class.
-// By default, $wpdb is instantiated to talk to the WordPress database.
-
-function zplugin_shortcode_zpwpdb() {
+// Shortcode to access the DB directly usign $wpdb global var.
+function zplugin_shortcode_zpluginwpdb() {
 	// 1st Method - Declaring $wpdb as global and using it to execute an SQL query statement that returns a PHP object
 	global $wpdb;
 	$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}options WHERE option_id = 1", OBJECT );
@@ -16,4 +13,4 @@ function zplugin_shortcode_zpwpdb() {
 	return "<pre>$ret</pre>";
 }
 
-add_shortcode( 'zpwpdb', 'zplugin_shortcode_zpwpdb' );
+add_shortcode( 'zpluginwpdb', 'zplugin_shortcode_zpluginwpdb' );
