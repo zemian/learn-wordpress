@@ -16,7 +16,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Bring in different test files
-require_once( dirname( __FILE__ ) . '/includes/shortcode-hello.php' );
-require_once( dirname( __FILE__ ) . '/includes/shortcode-pagelist.php' );
-require_once( dirname( __FILE__ ) . '/includes/shortcode-wpdb.php' );
 require_once( dirname( __FILE__ ) . '/bookreview-type/init.php' );
