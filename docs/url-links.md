@@ -21,6 +21,40 @@ http://localhost/wordpress/?cat=uncategorized&tag=coll - Get list of post that m
 The `wp_links` table is deprecated and not used by default. If you want, you can download 
 the `LinksManager` plugin to use it.
 
-## How to add your own URL params?
+## How to setup WordPress pretty URL
+
+### Apache HTTPD
+
+Use `mod_rewrite` and `.htaccess` file:
+
+```
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+```
+
+### Lighttpd
+
+Enable `server.modules += ("mod_rewrite")`
+
+And then add the following:
+
+```
+$HTTP["host"] =~ "(www.)?myhost.com" {
+	url.rewrite = (
+		"^/(.*)\.(.+)$" => "$0",
+		"^/(.+)/?$" => "/index.php/$1"
+	)
+
+	[...other unrelated configurations...]
+}
+```
+
+## Refs
 
 * https://dmjcomputerservices.com/blog/passing-url-parameters-to-a-wordpress-page/
+* https://www.guyrutenberg.com/2008/05/24/clean-urls-permalinks-for-wordpress-on-lighttpd/
