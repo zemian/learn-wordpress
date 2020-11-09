@@ -16,6 +16,167 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `wp_actionscheduler_actions`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_actionscheduler_actions` (
+  `action_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `hook` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `scheduled_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `scheduled_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `args` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `schedule` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `group_id` bigint unsigned NOT NULL DEFAULT '0',
+  `attempts` int NOT NULL DEFAULT '0',
+  `last_attempt_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_attempt_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `claim_id` bigint unsigned NOT NULL DEFAULT '0',
+  `extended_args` varchar(8000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`action_id`),
+  KEY `hook` (`hook`),
+  KEY `status` (`status`),
+  KEY `scheduled_date_gmt` (`scheduled_date_gmt`),
+  KEY `args` (`args`),
+  KEY `group_id` (`group_id`),
+  KEY `last_attempt_gmt` (`last_attempt_gmt`),
+  KEY `claim_id` (`claim_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_actions`
+--
+
+LOCK TABLES `wp_actionscheduler_actions` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `wp_actionscheduler_actions` VALUES (8,'action_scheduler/migration_hook','complete','2020-11-08 14:17:32','2020-11-08 14:17:32','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604845052;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604845052;}',1,1,'2020-11-08 14:17:36','2020-11-08 14:17:36',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (9,'action_scheduler/migration_hook','complete','2020-11-08 14:18:37','2020-11-08 14:18:37','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604845117;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604845117;}',1,1,'2020-11-08 14:19:00','2020-11-08 14:19:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (10,'wpforms_process_entry_emails_meta_cleanup','complete','2020-11-09 00:00:00','2020-11-09 00:00:00','{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1604880000;s:18:\"\0*\0first_timestamp\";i:1604880000;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1604880000;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,1,'2020-11-09 18:21:14','2020-11-09 18:21:14',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (11,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":2}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-08 14:27:53','2020-11-08 14:27:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (12,'action_scheduler/migration_hook','complete','2020-11-08 14:55:24','2020-11-08 14:55:24','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604847324;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604847324;}',1,1,'2020-11-08 14:55:25','2020-11-08 14:55:25',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (13,'action_scheduler/migration_hook','complete','2020-11-08 14:56:25','2020-11-08 14:56:25','[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1604847385;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1604847385;}',1,1,'2020-11-08 14:56:53','2020-11-08 14:56:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (14,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":3}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-08 14:56:13','2020-11-08 14:56:13',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (15,'wpforms_admin_notifications_update','complete','0000-00-00 00:00:00','0000-00-00 00:00:00','{\"tasks_meta_id\":4}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2020-11-09 18:21:14','2020-11-09 18:21:14',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (16,'wpforms_process_entry_emails_meta_cleanup','pending','2020-11-10 18:21:14','2020-11-10 18:21:14','{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1605032474;s:18:\"\0*\0first_timestamp\";i:1604880000;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1605032474;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
+-- Table structure for table `wp_actionscheduler_claims`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_claims`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_actionscheduler_claims` (
+  `claim_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`claim_id`),
+  KEY `date_created_gmt` (`date_created_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_claims`
+--
+
+LOCK TABLES `wp_actionscheduler_claims` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` DISABLE KEYS */;
+set autocommit=0;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
+-- Table structure for table `wp_actionscheduler_groups`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_actionscheduler_groups` (
+  `group_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`group_id`),
+  KEY `slug` (`slug`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_groups`
+--
+
+LOCK TABLES `wp_actionscheduler_groups` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `wp_actionscheduler_groups` VALUES (1,'action-scheduler-migration');
+INSERT INTO `wp_actionscheduler_groups` VALUES (2,'wpforms');
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
+-- Table structure for table `wp_actionscheduler_logs`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_actionscheduler_logs` (
+  `log_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `action_id` bigint unsigned NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `log_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `log_date_local` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`log_id`),
+  KEY `action_id` (`action_id`),
+  KEY `log_date_gmt` (`log_date_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_logs`
+--
+
+LOCK TABLES `wp_actionscheduler_logs` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `wp_actionscheduler_logs` VALUES (1,8,'action created','2020-11-08 14:16:32','2020-11-08 14:16:32');
+INSERT INTO `wp_actionscheduler_logs` VALUES (2,8,'action started via WP Cron','2020-11-08 14:17:36','2020-11-08 14:17:36');
+INSERT INTO `wp_actionscheduler_logs` VALUES (3,8,'action complete via WP Cron','2020-11-08 14:17:36','2020-11-08 14:17:36');
+INSERT INTO `wp_actionscheduler_logs` VALUES (4,9,'action created','2020-11-08 14:17:37','2020-11-08 14:17:37');
+INSERT INTO `wp_actionscheduler_logs` VALUES (5,10,'action created','2020-11-08 14:17:37','2020-11-08 14:17:37');
+INSERT INTO `wp_actionscheduler_logs` VALUES (6,9,'action started via WP Cron','2020-11-08 14:19:00','2020-11-08 14:19:00');
+INSERT INTO `wp_actionscheduler_logs` VALUES (7,9,'action complete via WP Cron','2020-11-08 14:19:00','2020-11-08 14:19:00');
+INSERT INTO `wp_actionscheduler_logs` VALUES (8,11,'action created','2020-11-08 14:27:28','2020-11-08 14:27:28');
+INSERT INTO `wp_actionscheduler_logs` VALUES (9,11,'action started via WP Cron','2020-11-08 14:27:52','2020-11-08 14:27:52');
+INSERT INTO `wp_actionscheduler_logs` VALUES (10,11,'action complete via WP Cron','2020-11-08 14:27:53','2020-11-08 14:27:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (11,12,'action created','2020-11-08 14:54:24','2020-11-08 14:54:24');
+INSERT INTO `wp_actionscheduler_logs` VALUES (12,12,'action started via WP Cron','2020-11-08 14:55:25','2020-11-08 14:55:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (13,12,'action complete via WP Cron','2020-11-08 14:55:25','2020-11-08 14:55:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (14,13,'action created','2020-11-08 14:55:25','2020-11-08 14:55:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (15,14,'action created','2020-11-08 14:55:39','2020-11-08 14:55:39');
+INSERT INTO `wp_actionscheduler_logs` VALUES (16,14,'action started via Async Request','2020-11-08 14:56:13','2020-11-08 14:56:13');
+INSERT INTO `wp_actionscheduler_logs` VALUES (17,14,'action complete via Async Request','2020-11-08 14:56:13','2020-11-08 14:56:13');
+INSERT INTO `wp_actionscheduler_logs` VALUES (18,13,'action started via WP Cron','2020-11-08 14:56:53','2020-11-08 14:56:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (19,13,'action complete via WP Cron','2020-11-08 14:56:53','2020-11-08 14:56:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (20,15,'action created','2020-11-09 18:21:13','2020-11-09 18:21:13');
+INSERT INTO `wp_actionscheduler_logs` VALUES (21,10,'action started via WP Cron','2020-11-09 18:21:14','2020-11-09 18:21:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (22,10,'action complete via WP Cron','2020-11-09 18:21:14','2020-11-09 18:21:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (23,16,'action created','2020-11-09 18:21:14','2020-11-09 18:21:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (24,15,'action started via WP Cron','2020-11-09 18:21:14','2020-11-09 18:21:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (25,15,'action complete via WP Cron','2020-11-09 18:21:14','2020-11-09 18:21:14');
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
 -- Table structure for table `wp_commentmeta`
 --
 
@@ -25,8 +186,8 @@ DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
   PRIMARY KEY (`meta_id`),
   KEY `comment_id` (`comment_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -54,17 +215,17 @@ DROP TABLE IF EXISTS `wp_comments`;
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint unsigned NOT NULL DEFAULT '0',
-  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_author_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `comment_karma` int NOT NULL DEFAULT '0',
-  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
-  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'comment',
+  `comment_approved` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'comment',
   `comment_parent` bigint unsigned NOT NULL DEFAULT '0',
   `user_id` bigint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`comment_ID`),
@@ -89,6 +250,34 @@ UNLOCK TABLES;
 commit;
 
 --
+-- Table structure for table `wp_db7_forms`
+--
+
+DROP TABLE IF EXISTS `wp_db7_forms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_db7_forms` (
+  `form_id` bigint NOT NULL AUTO_INCREMENT,
+  `form_post_id` bigint NOT NULL,
+  `form_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `form_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`form_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_db7_forms`
+--
+
+LOCK TABLES `wp_db7_forms` WRITE;
+/*!40000 ALTER TABLE `wp_db7_forms` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `wp_db7_forms` VALUES (1,10,'a:5:{s:12:\"cfdb7_status\";s:4:\"read\";s:9:\"your-name\";s:5:\"Test2\";s:10:\"your-email\";s:18:\"test@localhost.com\";s:12:\"your-subject\";s:10:\"Save to DB\";s:12:\"your-message\";s:15:\"Save to DB Test\";}','2020-11-08 15:31:32');
+/*!40000 ALTER TABLE `wp_db7_forms` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
 -- Table structure for table `wp_links`
 --
 
@@ -97,18 +286,18 @@ DROP TABLE IF EXISTS `wp_links`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_links` (
   `link_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `link_url` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
+  `link_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_target` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_visible` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
   `link_owner` bigint unsigned NOT NULL DEFAULT '1',
   `link_rating` int NOT NULL DEFAULT '0',
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_rel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_notes` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `link_rss` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`link_id`),
   KEY `link_visible` (`link_visible`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
@@ -134,9 +323,9 @@ DROP TABLE IF EXISTS `wp_options`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_options` (
   `option_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes',
+  `option_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `autoload` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
@@ -150,8 +339,8 @@ CREATE TABLE `wp_options` (
 LOCK TABLES `wp_options` WRITE;
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost:3000/wordpress','yes');
-INSERT INTO `wp_options` VALUES (2,'home','http://localhost:3000/wordpress','yes');
+INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost/wordpress','yes');
+INSERT INTO `wp_options` VALUES (2,'home','http://localhost/wordpress','yes');
 INSERT INTO `wp_options` VALUES (3,'blogname','MyWP','yes');
 INSERT INTO `wp_options` VALUES (4,'blogdescription','Just another WordPress site','yes');
 INSERT INTO `wp_options` VALUES (5,'users_can_register','0','yes');
@@ -284,8 +473,8 @@ DROP TABLE IF EXISTS `wp_postmeta`;
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -317,24 +506,24 @@ CREATE TABLE `wp_posts` (
   `post_author` bigint unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_excerpt` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
-  `comment_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `ping_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `post_name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `to_ping` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `pinged` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_excerpt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `post_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `to_ping` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `pinged` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content_filtered` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content_filtered` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `post_parent` bigint unsigned NOT NULL DEFAULT '0',
-  `guid` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `guid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `menu_order` int NOT NULL DEFAULT '0',
-  `post_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'post',
-  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `post_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `comment_count` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `post_name` (`post_name`(191)),
@@ -396,8 +585,8 @@ DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint unsigned NOT NULL DEFAULT '0',
-  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `description` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `taxonomy` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `parent` bigint unsigned NOT NULL DEFAULT '0',
   `count` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`term_taxonomy_id`),
@@ -428,8 +617,8 @@ DROP TABLE IF EXISTS `wp_termmeta`;
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
   PRIMARY KEY (`meta_id`),
   KEY `term_id` (`term_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -456,8 +645,8 @@ DROP TABLE IF EXISTS `wp_terms`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_terms` (
   `term_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `term_group` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
@@ -487,8 +676,8 @@ DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
   PRIMARY KEY (`umeta_id`),
   KEY `user_id` (`user_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -530,15 +719,15 @@ DROP TABLE IF EXISTS `wp_users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_users` (
   `ID` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_login` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_pass` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_url` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_login` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_activation_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `user_status` int NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `display_name` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`),
   KEY `user_login_key` (`user_login`),
   KEY `user_nicename` (`user_nicename`),
@@ -557,6 +746,37 @@ INSERT INTO `wp_users` VALUES (1,'admin','$P$BQhhCZel6SN.JCDhmv3dbbKO5.Gtl20','a
 /*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
+
+--
+-- Table structure for table `wp_wpforms_tasks_meta`
+--
+
+DROP TABLE IF EXISTS `wp_wpforms_tasks_meta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wp_wpforms_tasks_meta` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_wpforms_tasks_meta`
+--
+
+LOCK TABLES `wp_wpforms_tasks_meta` WRITE;
+/*!40000 ALTER TABLE `wp_wpforms_tasks_meta` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `wp_wpforms_tasks_meta` VALUES (1,'wpforms_process_entry_emails_meta_cleanup','Wzg2NDAwXQ==','2020-11-08 14:17:37');
+INSERT INTO `wp_wpforms_tasks_meta` VALUES (2,'wpforms_admin_notifications_update','W10=','2020-11-08 14:27:28');
+INSERT INTO `wp_wpforms_tasks_meta` VALUES (3,'wpforms_admin_notifications_update','W10=','2020-11-08 14:55:39');
+INSERT INTO `wp_wpforms_tasks_meta` VALUES (4,'wpforms_admin_notifications_update','W10=','2020-11-09 18:21:13');
+/*!40000 ALTER TABLE `wp_wpforms_tasks_meta` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -567,4 +787,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-02 14:16:19
+-- Dump completed on 2020-11-09 15:07:10
