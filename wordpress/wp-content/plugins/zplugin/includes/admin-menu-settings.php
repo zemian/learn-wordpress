@@ -4,12 +4,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( "We're sorry, but you can not directly access this file." );
 }
 
+// This DEMO will add a sub-level menu item under the Settings top-level
 // https://codex.wordpress.org/Adding_Administration_Menus
 
-// This DEMO will add a sub-level menu item under the Settings top-level
 /** Step 1. */
 function zplugin_plugin_settings_menu() {
-	add_options_page( 'ZPlugin Options', 'ZPlugin', 'manage_options', 'zplugin_manage_options', 'zplugin_plugin_options' );
+	add_options_page( 
+		'ZPlugin Options',         /* page title */
+		'ZPlugin',                 /* menu title */
+		'manage_options',          /* capability */
+		'zplugin_manage_options',  /* menu_slug - accessible using 'page' parameter. */
+		'zplugin_plugin_options'   /* function - content page callback */
+	);
 }
 
 /** Step 2 */
