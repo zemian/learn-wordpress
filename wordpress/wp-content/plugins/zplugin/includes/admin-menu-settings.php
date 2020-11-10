@@ -8,21 +8,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 // https://codex.wordpress.org/Adding_Administration_Menus
 
 /** Step 1. */
-function zplugin_plugin_settings_menu() {
+function zplugin_menu_add_settings() {
 	add_options_page( 
-		'ZPlugin Options',         /* page title */
-		'ZPlugin',                 /* menu title */
-		'manage_options',          /* capability */
-		'zplugin_manage_options',  /* menu_slug - accessible using 'page' parameter. */
-		'zplugin_plugin_options'   /* function - content page callback */
+		'ZPlugin Options',              /* page title */
+		'ZPlugin',                      /* menu title */
+		'manage_options',               /* capability */
+		'zplugin_setting_opts',         /* menu_slug - accessible using 'page' parameter. */
+		'zplugin_menu_setting_options'  /* function - content page callback */
 	);
 }
 
 /** Step 2 */
-add_action( 'admin_menu', 'zplugin_plugin_settings_menu' );
+add_action( 'admin_menu', 'zplugin_menu_add_settings' );
 
 /** Step 3. */
-function zplugin_plugin_options() {
+function zplugin_menu_setting_options() {
 	if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
