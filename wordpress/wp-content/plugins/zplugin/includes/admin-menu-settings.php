@@ -26,7 +26,12 @@ function zplugin_menu_setting_options() {
 	if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
-	echo '<div class="wrap">';
-	echo '<p>Here is where the form would go if I actually had options.</p>';
-	echo '</div>';
+	
+	$admin_url = admin_url();
+	$site_url = site_url();
+	echo "<div class='wrap''>";
+	echo "<h1>ZPlugin Settings > Options</h1>";
+	echo "<p>Admin URL : $admin_url</p>";
+	echo "<p>Site URL : $site_url</p>";
+	echo "</div>";
 }
