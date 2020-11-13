@@ -4,8 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( "We're sorry, but you can not directly access this file." );
 }
 
-// This DEMO will add a top menu item/page and then a sub menu item/page
-// https://codex.wordpress.org/Adding_Administration_Menus
+/**
+ * This DEMO will add a top menu item/page and then a sub menu item/page
+ * https://codex.wordpress.org/Adding_Administration_Menus
+ */
 
 function zplugin_add_menu_zplugin() {
 	// Icons ref: https://developer.wordpress.org/resource/dashicons/#index-card

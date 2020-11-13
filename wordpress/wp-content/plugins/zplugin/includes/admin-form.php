@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This demo show how to process a custom form in Admin page
  * 
  * Ref
+ * https://developer.wordpress.org/reference/files/wp-admin/admin-post.php/
  * https://developer.wordpress.org/themes/theme-security/using-nonces/
+ * https://developer.wordpress.org/reference/functions/wp_redirect/
  */
 
 function zplugin_add_admin_menu_form() {
