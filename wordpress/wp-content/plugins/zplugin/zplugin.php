@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Bring in different test files
-require_once( dirname( __FILE__ ) . '/includes/admin-config.php' );
-require_once( dirname( __FILE__ ) . '/includes/admin-menu-settings.php' );
-require_once( dirname( __FILE__ ) . '/includes/admin-menu-zplugin.php' );
-require_once( dirname( __FILE__ ) . '/includes/admin-form.php' );
-//require_once( dirname( __FILE__ ) . '/includes/admin-notices.php' );
+require_once( dirname( __FILE__ ) . '/includes/shortcode-hello.php' );
+require_once( dirname( __FILE__ ) . '/includes/shortcode-pagelist.php' );
+require_once( dirname( __FILE__ ) . '/includes/shortcode-wpdb.php' );
