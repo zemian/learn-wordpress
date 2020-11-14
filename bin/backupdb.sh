@@ -1,6 +1,7 @@
 #!/bin/sh
 SCRIPT_DIR=$(dirname $0)
 DBNAME=wordpressdb
+echo "Backup DB $DBNAME"
 mysqldump --single-transaction \
 --quick \
 --no-autocommit \
