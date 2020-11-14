@@ -1,0 +1,50 @@
+@font-face { 
+    font-family: 
+      -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue", Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+}
+
+.editor-styles-wrapper,
+.editor-block-list__layout .editor-block-list__block,
+.editor-block-list__layout .editor-block-list__block p {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue", Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.editor-post-title__block .editor-post-title__input,
+.wp-block-heading h1,
+.wp-block-heading h2,
+.wp-block-heading h3,
+.wp-block-heading h4 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .2em;
+    color: inherit;
+}
+
+/* Set left margin for post text editor only to 20px, no right margin */
+body.gutenberg-editor-page .edit-post-text-editor {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+/* Width of "wide" blocks */
+body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
+    max-width: 1140px;
+}
+
+/* Width of "full-width" blocks */
+body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+    max-width: none;
+}
+
+/*
+.wp-block-button .wp-block-button__link {
+    background-color: #007bff;
+}
+
+.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+}
+*/
