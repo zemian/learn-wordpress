@@ -1,3 +1,12 @@
+## Homepage: Index, FrontPage and Blog Pages
+
+By defaut a theme would list all Posts in Index. You can create two Pages: FrontPage and Blog.
+Then configure WP under Settings > Reading > "Your homepage displays" to switch to two pages
+above. This is so that FrontPage can be a Page, and you can have separate Blog page to list Posts.
+
+NOTE: A theme may override the content of the FrontPage and Blog pages you created! So adding 
+content in there may or maynot be visible.
+
 ## Example
 
 See `wordpress/wp-content/themes/ztheme`.
@@ -11,7 +20,7 @@ NOTE: Remember to prefix all namings with `<theme-name>`.
 
 See https://codex.wordpress.org/Theme_Development
 
-## Fuctions
+## Functions
 
 Add `functions.php` to add logic for theme. It can do pretty much what a plugin can.
 
