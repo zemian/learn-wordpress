@@ -1,3 +1,22 @@
+## How to change WP URL
+
+Update DB `wp_options` table.
+
+See https://wordpress.org/support/article/changing-the-site-url
+
+## Setup WP Address vs Site URL
+
+How to run WP on http://localhost but deploy in http://localhost/wordpress 
+
+Admin > Settings > General
+
+"WordPress Address (URL)" vs "Site Address (URL)"
+
+1. Deploy `<doc_root>/wordpress` 
+2. Copy (not move) `.htaccess` and `index.php` into `<doc_root>`
+
+See https://wordpress.org/support/article/giving-wordpress-its-own-directory/
+
 ## How WordPress Organize Links
 
 WordPress offers you the ability to create a custom URL structure for your permalinks and archives.
