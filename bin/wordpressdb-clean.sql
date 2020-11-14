@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_general_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`meta_id`),
   KEY `comment_id` (`comment_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -54,17 +54,17 @@ DROP TABLE IF EXISTS `wp_comments`;
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint unsigned NOT NULL DEFAULT '0',
-  `comment_author` tinytext COLLATE utf8mb4_general_ci NOT NULL,
-  `comment_author_email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `comment_author_url` varchar(200) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `comment_author_IP` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `comment_author` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `comment_author_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_content` text COLLATE utf8mb4_general_ci NOT NULL,
+  `comment_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `comment_karma` int NOT NULL DEFAULT '0',
-  `comment_approved` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '1',
-  `comment_agent` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `comment_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'comment',
+  `comment_approved` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'comment',
   `comment_parent` bigint unsigned NOT NULL DEFAULT '0',
   `user_id` bigint unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`comment_ID`),
@@ -97,18 +97,18 @@ DROP TABLE IF EXISTS `wp_links`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_links` (
   `link_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `link_url` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'Y',
+  `link_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_target` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_visible` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'Y',
   `link_owner` bigint unsigned NOT NULL DEFAULT '1',
   `link_rating` int NOT NULL DEFAULT '0',
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_general_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_rel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `link_notes` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `link_rss` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`link_id`),
   KEY `link_visible` (`link_visible`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -134,9 +134,9 @@ DROP TABLE IF EXISTS `wp_options`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_options` (
   `option_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `option_name` varchar(191) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_general_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'yes',
+  `option_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `autoload` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
@@ -150,8 +150,8 @@ CREATE TABLE `wp_options` (
 LOCK TABLES `wp_options` WRITE;
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost:3000/wordpress','yes');
-INSERT INTO `wp_options` VALUES (2,'home','http://localhost:3000/wordpress','yes');
+INSERT INTO `wp_options` VALUES (1,'siteurl','http://localhost/wordpress','yes');
+INSERT INTO `wp_options` VALUES (2,'home','http://localhost/wordpress','yes');
 INSERT INTO `wp_options` VALUES (3,'blogname','MyWP','yes');
 INSERT INTO `wp_options` VALUES (4,'blogdescription','Just another WordPress site','yes');
 INSERT INTO `wp_options` VALUES (5,'users_can_register','0','yes');
@@ -284,8 +284,8 @@ DROP TABLE IF EXISTS `wp_postmeta`;
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_general_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -317,24 +317,24 @@ CREATE TABLE `wp_posts` (
   `post_author` bigint unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content` longtext COLLATE utf8mb4_general_ci NOT NULL,
-  `post_title` text COLLATE utf8mb4_general_ci NOT NULL,
-  `post_excerpt` text COLLATE utf8mb4_general_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'publish',
-  `comment_status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'open',
-  `ping_status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `post_name` varchar(200) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `to_ping` text COLLATE utf8mb4_general_ci NOT NULL,
-  `pinged` text COLLATE utf8mb4_general_ci NOT NULL,
+  `post_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `post_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `post_excerpt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `post_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `post_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `to_ping` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `pinged` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content_filtered` longtext COLLATE utf8mb4_general_ci NOT NULL,
+  `post_content_filtered` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `post_parent` bigint unsigned NOT NULL DEFAULT '0',
-  `guid` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `guid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `menu_order` int NOT NULL DEFAULT '0',
-  `post_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'post',
-  `post_mime_type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `post_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `comment_count` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `post_name` (`post_name`(191)),
@@ -396,8 +396,8 @@ DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint unsigned NOT NULL DEFAULT '0',
-  `taxonomy` varchar(32) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `description` longtext COLLATE utf8mb4_general_ci NOT NULL,
+  `taxonomy` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `parent` bigint unsigned NOT NULL DEFAULT '0',
   `count` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`term_taxonomy_id`),
@@ -428,8 +428,8 @@ DROP TABLE IF EXISTS `wp_termmeta`;
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_general_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`meta_id`),
   KEY `term_id` (`term_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -456,8 +456,8 @@ DROP TABLE IF EXISTS `wp_terms`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_terms` (
   `term_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `term_group` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
@@ -487,8 +487,8 @@ DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_general_ci,
+  `meta_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meta_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`umeta_id`),
   KEY `user_id` (`user_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -530,15 +530,15 @@ DROP TABLE IF EXISTS `wp_users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wp_users` (
   `ID` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_login` varchar(60) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `user_pass` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `user_email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-  `user_url` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_login` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `user_activation_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `user_status` int NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `display_name` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`),
   KEY `user_login_key` (`user_login`),
   KEY `user_nicename` (`user_nicename`),
@@ -567,4 +567,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-30 11:58:37
+-- Dump completed on 2020-11-14  9:16:33
