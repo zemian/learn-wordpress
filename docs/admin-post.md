@@ -16,3 +16,5 @@ Remember to direct user after a POST processing like this:
     if ( wp_redirect( $sendback_url ) ) {
         exit;
     }
+    
+See also [form-processing.md](form-processing.md)
