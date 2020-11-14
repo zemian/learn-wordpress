@@ -7,6 +7,8 @@ above. This is so that FrontPage can be a Page, and you can have separate Blog p
 NOTE: A theme may override the content of the FrontPage and Blog pages you created! So adding 
 content in there may or maynot be visible.
 
+Ref: https://www.wpbeginner.com/wp-tutorials/how-to-create-a-separate-page-for-blog-posts-in-wordpress/
+
 ## Example
 
 See `wordpress/wp-content/themes/ztheme`.
