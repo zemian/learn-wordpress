@@ -1,9 +1,8 @@
 .DS_Store
 .idea/
-
 temp/
-work/
 
+# WP log file
 wordpress/wp-content/debug.log
 
 # This is a generated plugin that we can ignore
