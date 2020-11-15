@@ -1,10 +1,9 @@
 #!/bin/sh
+# Author: Zemian Deng 2020-11-14
 SCRIPT_DIR=$(dirname $0)
-DBNAME=wordpressdb
-DBUSER=zemian
-DBPASS='test123'
+source $SCRIPT_DIR/.env
 
-echo "Creating DB $DBNAME and user $DBUSER"
-echo "CREATE DATABASE $DBNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;" | mysql -f -u root
-echo "CREATE USER IF NOT EXISTS '$DBUSER'@'localhost' IDENTIFIED BY '$DBPASS';" | mysql -f -u root
-echo "GRANT ALL PRIVILEGES ON $DBNAME.* TO '$DBUSER'@'localhost';" | mysql -f -u root
+echo "Creating DB $UC_DBNAME and user $UC_DBUSER"
+echo $UC_DB_CREATE_DB_SQL | mysql -f $UC_DBA_LOGIN
+echo "CREATE USER IF NOT EXISTS '$UC_DBUSER'@'localhost' IDENTIFIED BY '$UC_DBPASS';" | mysql -f $UC_DBA_LOGIN
+echo "GRANT ALL PRIVILEGES ON $UC_DBNAME.* TO '$UC_DBUSER'@'localhost';" | mysql -f $UC_DBA_LOGIN

@@ -1,7 +1,8 @@
 #!/bin/sh
+# Author: Zemian Deng 2020-11-14
 SCRIPT_DIR=$(dirname $0)
-DBNAME=wordpressdb
+source $SCRIPT_DIR/.env
 
-echo "WARNING!: Dropping and re-creating DB $DBNAME"
-echo "DROP DATABASE IF EXISTS $DBNAME" | mysql -u root
-echo "CREATE DATABASE $DBNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;" | mysql -f -u root
+echo "WARNING!: Dropping and re-creating DB $UC_DBNAME"
+echo "DROP DATABASE IF EXISTS $UC_DBNAME" | mysql $UC_DBA_LOGIN
+echo $UC_DB_CREATE_DB_SQL | mysql $UC_DBA_LOGIN
