@@ -3,9 +3,9 @@
 SCRIPT_DIR=$(dirname $0)
 source $SCRIPT_DIR/.env
 
-echo "Backup DB $UC_DBNAME"
+echo "Backup DB $DB_NAME"
 mysqldump --single-transaction \
 --quick \
 --no-autocommit \
 --extended-insert=false \
-$UC_DBA_LOGIN $UC_DBNAME > $SCRIPT_DIR/$UC_DBNAME.sql
+$DB_OPTS_USER $DB_NAME > $SCRIPT_DIR/$DB_NAME.sql

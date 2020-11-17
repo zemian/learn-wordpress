@@ -4,10 +4,10 @@ SCRIPT_DIR=$(dirname $0)
 source $SCRIPT_DIR/.env
 
 # Print important env vars
-echo "Using $UC_ENV env vars"
-echo "UC_DBNAME=$UC_DBNAME"
-echo "UC_DBUSER=$UC_DBUSER"
-echo "UC_DBAUSER=$UC_DBAUSER"
+echo "Using $ENV_NAME env vars"
+echo "DB_NAME=$DB_NAME"
+echo "DB_USER=$DB_USER"
+echo "DB_SUPER_USER=$DB_SUPER_USER"
 
 # Run a query
-echo "SELECT VERSION() as mysql_version" | mysql $UC_DBA_LOGIN
+echo "SELECT VERSION() as mysql_version" | mysql $DB_OPTS_USER

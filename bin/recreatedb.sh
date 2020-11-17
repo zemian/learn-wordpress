@@ -3,6 +3,6 @@
 SCRIPT_DIR=$(dirname $0)
 source $SCRIPT_DIR/.env
 
-echo "WARNING!: Dropping and re-creating DB $UC_DBNAME"
-echo "DROP DATABASE IF EXISTS $UC_DBNAME" | mysql $UC_DBA_LOGIN
-echo $UC_DB_CREATE_DB_SQL | mysql $UC_DBA_LOGIN
+echo "WARNING!: Dropping and re-creating DB $DB_NAME"
+echo "DROP DATABASE IF EXISTS $DB_NAME" | mysql $DB_OPTS_USER
+echo $DB_CREATE_DB_SQL | mysql $DB_OPTS_USER

@@ -4,7 +4,6 @@
 # NOTE the command line version of import will not have option to import uploaded images!
 # Use the Admin interface if you want this.
 SCRIPT_DIR=$(dirname $0)
-source $SCRIPT_DIR/.env
 
 echo "Importing WP sample dataset"
 $SCRIPT_DIR/wp.sh plugin activate wordpress-importer
