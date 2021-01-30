@@ -2,6 +2,8 @@
 
 This repo contains [WordPress](https://wordpress.org) source and docs for learning purpose.
 
+NOTE: WordPress 5.5.3 requires PHP 7 (PHP 8 will give you errors at home page!)
+
 ## Setup Database
 
 Here are instruction on how to create a database called `wordpressdb`
@@ -73,8 +75,9 @@ To see more ways on how to setup PHP with different web servers, see [learn-php 
 
 ## Setup Web Server on port 80
 
-If you have system web server installed in `/usr/local/var/www` that runs on port 80. Then you can reconfigure
-the setup to use that to host the WordPress with following changes:
+If you have system web server installed in `/usr/local/var/www` that runs on port 80.
+For example lighttpd server config is at `/usr/local/etc/lighttpd/lighttpd.conf`. Then you can 
+reconfigure the setup to use that to host the WordPress with following changes:
 
 1. Create a symbolic link to system web server
    
