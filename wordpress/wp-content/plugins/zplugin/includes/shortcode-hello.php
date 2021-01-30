@@ -9,10 +9,3 @@ function zplugin_shortcode_zpluginhello() {
 	return "<p>Hello World!</p>";
 }
 add_shortcode( 'zpluginhello', 'zplugin_shortcode_zpluginhello' );
-
-// Shortcode to get list of pages from a parent page.
-function zplugin_shortcode_zpluginpagelist($atts = [], $content = null, $tag = '') {
-	$page_id = $atts['pageid'] ?? 0 ;
-	return wp_list_pages(['echo' => false, 'child_of' => $page_id, 'title_li' => '']);
-}
-add_shortcode( 'zpluginpagelist', 'zplugin_shortcode_zpluginpagelist' );
