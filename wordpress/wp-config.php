@@ -79,6 +79,10 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
+//// Change and override local dev web server base URLs
+//define( 'WP_SITEURL', 'http://localhost/wordpress' );
+//define( 'WP_HOME', 'http://localhost/wordpress' );
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
