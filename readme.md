@@ -48,13 +48,28 @@ To see more ways on how to setup PHP with different web servers, see [learn-php 
 
 ## WP Installation
 
-1. open http://localhost:3000/wordpress/wp-admin/install.php
+1. Open http://localhost:3000/wordpress/wp-admin/install.php
 
 2. Select English Language
 
 3. Populate DB information (it will auto create `wp-config.php` for you.)
 
-4. Populate Site and Admin user info (example login: `admin/test123`)
+   ```
+   Database Name: wordpressdb
+   Username: zemian
+   Password: test123
+   Database Host: localhost
+   Table prefix: wp_
+   ```
+   
+4. Complete the Welcome - Information Needed screen
+
+   ```
+   Site Title: Learn WordPress
+   Username: admin
+   Password: test123
+   Email: admin@localhost.local
+   ```
 
 ## Setup Web Server on port 80
 
@@ -77,7 +92,8 @@ the setup to use that to host the WordPress with following changes:
 
 ## Reset DB and WordPress
 
-    `bin/recreatedb clean`
+1. Run `bin/recreatedb clean`
+2. Rerun WordPress installation
 
 ## How to load WordPress Sample
 
