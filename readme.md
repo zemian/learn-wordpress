@@ -43,10 +43,25 @@ of the source, you may replace it.
 
 ## Setup Web Server
 
-	bin/server.sh
-	open http://localhost:3000/wordpress
+Quick local PHP server:
+   
+   ```
+   bin/server.sh
+   open http://localhost:3000/wordpress
+   ```
 
-To see more ways on how to setup PHP with different web servers, see [learn-php readme.md](https://github.com/zemian/learn-php).
+### Using lighttpd Web Server 
+
+NOTE: If your system web server is pon port 80, then you need to change the WordPress 
+site URL first, since it default to `http://localhost:3000/wordpress`. See section below.
+
+1. Edit `/usr/local/etc/lighttpd/lighttpd.conf` to configure PHP using `fastcgi`
+
+2. Create a symbolic link to system web server document root:
+
+   `ln -s $(pwd)/wordpress /usr/local/var/www/wordpress`
+
+3. Now open browser to http://localhost/wordpress
 
 ## WP Installation
 
@@ -73,25 +88,25 @@ To see more ways on how to setup PHP with different web servers, see [learn-php 
    Email: admin@localhost.local
    ```
 
-## Setup Web Server on port 80
+## Changing WordPress site URL
 
-If you have system web server installed in `/usr/local/var/www` that runs on port 80.
-For example lighttpd server config is at `/usr/local/etc/lighttpd/lighttpd.conf`. Then you can 
-reconfigure the setup to use that to host the WordPress with following changes:
+The default clean DB branch of this project is set to use 'http://localhost:3000/wordpress'. If you
+want to change this, you can do it in two ways:
 
-1. Create a symbolic link to system web server
+Option1: Update DB `wp_options` table with following:
+
+    ```
+    1,   siteurl, http://localhost:3000/wordpress,   yes
+    2,   home,    http://localhost:3000/wordpress,   yes
+    ```
    
-    `ln -s $(pwd)/wordpress /usr/local/var/www/wordpress`
+Option2: Add the following into `wp-config.php`
 
-2. Update DB wp_options table with following:
-
-    ```
-    1,siteurl,http://localhost/wordpress,yes
-    2,home,http://localhost/wordpress,yes
-    ```
-3. Open browser to following:
-
-   http://localhost/wordpress
+   ```
+   # Change and override local dev web server base URLs
+   define( 'WP_SITEURL', 'http://localhost:3000/wordpress' );
+   define( 'WP_HOME', 'http://localhost:3000/wordpress' );
+   ```
 
 ## Reset DB and WordPress
 
