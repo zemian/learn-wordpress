@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-<section id="primary" class="content-area">
+<section id="primary" class="content-area" bp-template="search">
 	<main id="main" class="site-main" role="main">
 		<?php if ( have_posts() ) : ?>
 			<div class="container">

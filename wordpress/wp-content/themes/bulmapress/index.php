@@ -15,7 +15,7 @@
 
 <?php get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area" bp-template="index">
 	<main id="main" class="site-main wrapper" role="main">
 		<?php if ( have_posts() ) : ?>
 			<div class="container">
