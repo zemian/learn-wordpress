@@ -1,1 +1,0 @@
-/Users/zedeng/src/zemian/learn-wordpress/wordpress/wp-content/plugins/query-monitor/wp-content/db.php
