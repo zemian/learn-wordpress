@@ -2,6 +2,8 @@
 
 This repo contains [WordPress](https://wordpress.org) source and docs for learning purpose.
 
+NOTE: WordPress 5.5.3 requires PHP 7 (PHP 8 will give you errors at home page!)
+
 ## Setup Database
 
 Here are instruction on how to create a database called `wordpressdb`
@@ -41,43 +43,75 @@ of the source, you may replace it.
 
 ## Setup Web Server
 
-	bin/server.sh
-	open http://localhost:3000/wordpress
+Quick local PHP server:
+   
+   ```
+   bin/server.sh
+   open http://localhost:3000/wordpress
+   ```
 
-To see more ways on how to setup PHP with different web servers, see [learn-php readme.md](https://github.com/zemian/learn-php).
+### Using lighttpd Web Server 
+
+NOTE: If your system web server is pon port 80, then you need to change the WordPress 
+site URL first, since it default to `http://localhost:3000/wordpress`. See section below.
+
+1. Edit `/usr/local/etc/lighttpd/lighttpd.conf` to configure PHP using `fastcgi`
+
+2. Create a symbolic link to system web server document root:
+
+   `ln -s $(pwd)/wordpress /usr/local/var/www/wordpress`
+
+3. Now open browser to http://localhost/wordpress
 
 ## WP Installation
 
-1. open http://localhost:3000/wordpress/wp-admin/install.php
+1. Open http://localhost:3000/wordpress/wp-admin/install.php
 
 2. Select English Language
 
 3. Populate DB information (it will auto create `wp-config.php` for you.)
 
-4. Populate Site and Admin user info (example login: `admin/test123`)
-
-## Setup Web Server on port 80
-
-If you have system web server installed in `/usr/local/var/www` that runs on port 80. Then you can reconfigure
-the setup to use that to host the WordPress with following changes:
-
-1. Create a symbolic link to system web server
+   ```
+   Database Name: wordpressdb
+   Username: zemian
+   Password: test123
+   Database Host: localhost
+   Table prefix: wp_
+   ```
    
-    `ln -s $(pwd)/wordpress /usr/local/var/www/wordpress`
+4. Complete the Welcome - Information Needed screen
 
-2. Update DB wp_options table with following:
+   ```
+   Site Title: Learn WordPress
+   Username: admin
+   Password: test123
+   Email: admin@localhost.local
+   ```
+
+## Changing WordPress site URL
+
+The default clean DB branch of this project is set to use 'http://localhost:3000/wordpress'. If you
+want to change this, you can do it in two ways:
+
+Option1: Update DB `wp_options` table with following:
 
     ```
-    1,siteurl,http://localhost/wordpress,yes
-    2,home,http://localhost/wordpress,yes
+    1,   siteurl, http://localhost:3000/wordpress,   yes
+    2,   home,    http://localhost:3000/wordpress,   yes
     ```
-3. Open browser to following:
+   
+Option2: Add the following into `wp-config.php`
 
-   http://localhost/wordpress
+   ```
+   # Change and override local dev web server base URLs
+   define( 'WP_SITEURL', 'http://localhost:3000/wordpress' );
+   define( 'WP_HOME', 'http://localhost:3000/wordpress' );
+   ```
 
 ## Reset DB and WordPress
 
-    `bin/recreatedb clean`
+1. Run `bin/recreatedb clean`
+2. Rerun WordPress installation
 
 ## How to load WordPress Sample
 
